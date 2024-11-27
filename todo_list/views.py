@@ -9,7 +9,7 @@ from todo_list.models import Task, Tag
 class TaskListView(generic.ListView):
     model = Task
     queryset = (
-        Task.objects.order_by("-is_done").order_by("-datetime").prefetch_related("tags")
+        Task.objects.order_by("is_done", "-datetime").prefetch_related("tags")
     )
     paginate_by = 5
 
