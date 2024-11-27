@@ -8,8 +8,9 @@ from todo_list.models import Task, Tag
 
 class TaskListView(generic.ListView):
     model = Task
-    queryset = (Task.objects.order_by("-is_done").order_by("-datetime")
-                .prefetch_related("tags"))
+    queryset = (
+        Task.objects.order_by("-is_done").order_by("-datetime").prefetch_related("tags")
+    )
     paginate_by = 5
 
 
@@ -51,13 +52,17 @@ class TagListView(generic.ListView):
 
 class TagCreateView(generic.CreateView):
     model = Tag
-    fields = ["name",]
+    fields = [
+        "name",
+    ]
     success_url = reverse_lazy("todo_list:tag-list")
 
 
 class TagUpdateView(generic.UpdateView):
     model = Tag
-    fields = ["name",]
+    fields = [
+        "name",
+    ]
     success_url = reverse_lazy("todo_list:tag-list")
 
 

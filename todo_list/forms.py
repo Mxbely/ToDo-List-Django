@@ -13,10 +13,9 @@ class TaskForm(forms.ModelForm):
         widgets = {
             "content": forms.Textarea(attrs={"rows": 3}),
             "deadline": forms.DateInput(
-                format="%Y-%m-%d", attrs={
-                    'placeholder': 'Select a date',
-                    'type': 'date'
-                }),
+                format="%Y-%m-%d",
+                attrs={"placeholder": "Select a date", "type": "date"},
+            ),
             "tags": forms.CheckboxSelectMultiple(),
         }
 
